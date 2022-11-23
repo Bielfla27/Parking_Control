@@ -1,3 +1,3 @@
 # Parking_Control
 
-Api para controle de estacionamento para condomínios 
+Api de controle de estacionamento para condomínios 
