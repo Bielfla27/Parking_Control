@@ -3,15 +3,15 @@ package com.example.parkingcontrol.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.parkingcontrol.repository.ParkingSportRepository;
+import com.example.parkingcontrol.repository.ParkingSpotRepository;
 
 @Service
-public class ParkingSportService {
+public class ParkingSpotService {
 	
 	
-	final ParkingSportRepository parkingSportRepository;
+	final ParkingSpotRepository parkingSportRepository;
 	
-	public ParkingSportService(ParkingSportRepository parkingSportRepository) {
+	public ParkingSpotService(ParkingSpotRepository parkingSportRepository) {
 		this.parkingSportRepository = parkingSportRepository;
 		
 	}
