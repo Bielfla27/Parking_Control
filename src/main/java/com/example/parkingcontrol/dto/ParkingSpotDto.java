@@ -18,8 +18,7 @@ public class ParkingSpotDto {
 	private String modelCar; //modelo do carro
 	@NotBlank
 	private String colorCar; //cor Do Carro
-	@NotBlank
-	private LocalDateTime registrationDate; //data de registro
+	
 	@NotBlank
 	private String responsableName; //nome do responsável
 	@NotBlank
@@ -56,12 +55,6 @@ public class ParkingSpotDto {
 	}
 	public void setColorCar(String colorCar) {
 		this.colorCar = colorCar;
-	}
-	public LocalDateTime getRegistrationDate() {
-		return registrationDate;
-	}
-	public void setRegistrationDate(LocalDateTime registrationDate) {
-		this.registrationDate = registrationDate;
 	}
 	public String getResponsableName() {
 		return responsableName;
