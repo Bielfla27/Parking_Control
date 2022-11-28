@@ -31,6 +31,16 @@ public class ParkingSpotController {
 	
 	@PostMapping
 	public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto){ //salvaEstacionamento
+		if(parkingSpotService.existsBylicensePlateCar(parkingSpotDto.getLicensePlateCar())) {
+			return ResponseEntity.status(HttpStatus.CREATED).body("Já existe um carro cadastrada com essa placa");
+		}
+		if(parkingSpotService.existsByParkingSportNumber(parkingSpotDto.getParkingSportNumber())) {
+			return ResponseEntity.status(HttpStatus.CREATED).body("Essa vaga de estacionamento já está ocupada com um carro");
+		}
+		if(parkingSpotService.existsByApartamentAndBlock(parkingSpotDto.getApartament(), parkingSpotDto.getBlock())) {
+			return ResponseEntity.status(HttpStatus.CREATED).body("A pessoa cadastrada com esse apartamento já possui uma vaga cadastrada");
+		}
+		
 		var parkingSpotModel = new ParkingSpotModel(); //variavel var séria a mesma coisa de iniciar como se fosse uma classe
 		BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel); //estou convertendo o DTO em parkingSpotModel   
 		parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC"))); //salvando a data da hora de registro
