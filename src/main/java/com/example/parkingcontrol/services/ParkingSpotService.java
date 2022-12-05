@@ -1,8 +1,11 @@
 package com.example.parkingcontrol.services;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.parkingcontrol.model.ParkingSpotModel;
@@ -35,4 +38,22 @@ public class ParkingSpotService {
 	public boolean existsByApartamentAndBlock(String apartament, String block) {
 		return parkingSportRepository.existsByApartamentAndBlock(apartament, block);
 	}
+
+	public List<ParkingSpotModel> findyAll() {
+		// TODO Auto-generated method stub
+		return parkingSportRepository.findAll();
+	}
+
+	public Optional<ParkingSpotModel> findyById(UUID id) {
+		// TODO Auto-generated method stub
+		return parkingSportRepository.findById(id);
+	}
+
+	@Transactional
+	public void delete(ParkingSpotModel parkingSpotModel) {
+		// TODO Auto-generated method stub
+		parkingSportRepository.delete(parkingSpotModel);
+	}
+	
+	
 }
